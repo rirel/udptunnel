@@ -42,9 +42,9 @@ static const char device_name[] = "/dev/tun0";
 int tun_create()
 {
 	int fd;
-
+	printf("%s","[tun_create] Creating tunnel device.\n");
 	if ((fd = open(device_name,O_RDWR)) == -1) {
-		perror("open");
+		printf("%s","[tun_create] Device doesn't exist, or is unreadable.\n");
 		exit(1);
 	}
 #ifdef __linux__
